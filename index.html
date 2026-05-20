@@ -3,36 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mission Video</title>
 
 <style>
 body{
     margin:0;
     background:black;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
+    overflow:hidden;
 }
 
 video{
-    width:100%;
-    height:100%;
+    width:100vw;
+    height:100vh;
     object-fit:cover;
+}
+
+#playBtn{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+
+    background:rgba(0,0,0,0.7);
+    color:white;
+
+    border:none;
+    padding:20px 40px;
+
+    font-size:24px;
+    border-radius:60px;
+
+    z-index:10;
 }
 </style>
 </head>
 
 <body>
 
-<video
-    autoplay
-    muted
-    playsinline
-    controls>
-    
-    <source src="26Mission_Radio_AD_0519.mp4" type="video/mp4">
+<video id="video" playsinline controls loop>
+    <source src="Mission_FAIL_03.mp4" type="video/mp4">
 </video>
+
+<button id="playBtn">
+▶ 시작
+</button>
+
+<script>
+const video = document.getElementById('video');
+const btn = document.getElementById('playBtn');
+
+btn.addEventListener('click', () => {
+    video.play();
+    btn.style.display = 'none';
+});
+</script>
 
 </body>
 </html>
